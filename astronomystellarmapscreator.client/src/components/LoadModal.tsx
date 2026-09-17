@@ -6,10 +6,10 @@ import type { Category } from "../types/category";
 type Props = {
     open: boolean;
     onClose: () => void;
-    onLoad?: (cat: CatDTO) => void;
+    onSelect: (cat: CatDTO) => void;
 };
 
-export default function LoadModal({ open, onClose }: Props) {
+export default function LoadModal({ open, onClose, onSelect }: Props) {
     const [cats, setCats] = useState<CatDTO[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -82,6 +82,11 @@ export default function LoadModal({ open, onClose }: Props) {
         }
     };
 
+    const loadCat = async (cat: CatDTO) => {
+        setSelected(cat);
+        onSelect(cat);
+    }
+
     if (!open) return null;
 
     return (
@@ -134,7 +139,7 @@ export default function LoadModal({ open, onClose }: Props) {
                         <div
                             key={cat.id}
                             className={`item ${selected?.id === cat.id ? "selected" : ""}`}
-                            onClick={() => setSelected(cat)}
+                            onClick={() => loadCat(cat)}
                         >
                             <div><strong>{cat.name}</strong></div>
                             <div>{cat.records ?? "—"} records</div>

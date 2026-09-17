@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
-namespace AstronomyStellarMapsCreator.Server.Models;
+﻿namespace AstronomyStellarMapsCreator.Server.Models;
 
 public partial class Astro280326Context : DbContext
 {

@@ -1,7 +1,7 @@
 ﻿namespace AstronomyStellarMapsCreator.Server.Controllers
 {
     [ApiController]
-    [Route("api/celestialObjects")]
+    [Route("api")]
     public class MapController : ControllerBase
     {
         private IRepository _repository;
@@ -12,15 +12,15 @@
             _repository = repository;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<StarDTO>>> GetCelestialObjects()
+        [HttpGet("getCat/{id?}")]
+        public async Task<ActionResult<List<StarDTO>>> GetCatObjects(int? id)
         {
-            var stars =  await _repository.GetCelestialObjectsAsync();
+            var stars =  await _repository.GetCatAsync(id);
             return Ok(stars);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<StarDTO>> GetGetCelestialObject(int id)
+        [HttpGet("getCelestialObject/{id}")]
+        public async Task<ActionResult<StarDTO>> GetCelestialObject(int id)
         {
             var star = await _repository.GetCelestialObjectAsync(id);
 

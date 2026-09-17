@@ -7,27 +7,21 @@
         {
             _context = context;
         }
-        public async Task<IEnumerable<StarDTO>> GetCelestialObjectsAsync()
+    
+        public async Task<IEnumerable<StarDTO>> GetCatAsync(int? catId)
         {
-            var stars = await _context.V50Catalogs.Where(s =>
-                s.RahH != null &&
-                s.RamMin != null &&
-                s.RasS != null &&
-                s.DedDeg != null &&
-                s.DemArcmin != null &&
-                s.DesArcsec != null &&
-                s.De != null
-                ).Select(s => new StarDTO
-            {
-                Id = s.Id,
-                RA = (double)(s.RahH + s.RamMin / 60.0 + s.RasS / 3600.0),
-                    Dec = s.De.Trim() == "-"
-                    ? (-1)*(double)(s.DedDeg + s.DemArcmin / 60.0 + s.DesArcsec / 3600.0)
-                    : (double)(s.DedDeg + s.DemArcmin / 60.0 + s.DesArcsec / 3600.0),
-                Mag = s.VmagMag ?? 100,
-            }).ToListAsync();
+            if(catId is null)
+                return await GetDefaultCatAsync();
 
-            return stars;
+            return await GetCatByIdAsync(catId);
+        }
+
+        private async Task<IEnumerable<StarDTO>> GetCatByIdAsync(int? catId)
+        {
+            //////////////////////////////////////////TODO
+            /////GET CATALOGUE
+            return null;
+            
         }
 
         public async Task<V50Catalog> GetCelestialObjectAsync(int id)
@@ -77,6 +71,29 @@
                 Name = c.Name,
                 Records = c.Records
             }).ToListAsync();
+        }
+
+        private async Task<IEnumerable<StarDTO>> GetDefaultCatAsync()
+        {
+            var stars = await _context.V50Catalogs.Where(s =>
+                s.RahH != null &&
+                s.RamMin != null &&
+                s.RasS != null &&
+                s.DedDeg != null &&
+                s.DemArcmin != null &&
+                s.DesArcsec != null &&
+                s.De != null
+                ).Select(s => new StarDTO
+                {
+                    Id = s.Id,
+                    RA = (double)(s.RahH + s.RamMin / 60.0 + s.RasS / 3600.0),
+                    Dec = s.De.Trim() == "-"
+                    ? (-1) * (double)(s.DedDeg + s.DemArcmin / 60.0 + s.DesArcsec / 3600.0)
+                    : (double)(s.DedDeg + s.DemArcmin / 60.0 + s.DesArcsec / 3600.0),
+                    Mag = s.VmagMag ?? 100,
+                }).ToListAsync();
+
+            return stars;
         }
     }
 }

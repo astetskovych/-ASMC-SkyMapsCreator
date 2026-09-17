@@ -61,7 +61,7 @@ export default function App() {
     };
 
     useEffect(() => {
-        loadStars("/api/celestialObjects", setStars, setLoading);
+        loadStars("/api/getCat", setStars, setLoading);
     }, []);
 
     return (
@@ -100,6 +100,10 @@ export default function App() {
             <LoadModal
                 open={modals.load}
                 onClose={() => closeModal("load")}
+                onSelect={(cat) => {
+                    loadStars(`/api/getCat/${cat.id}`, setStars, setLoading);
+                    closeModal("load");
+                }}
             />
             <ExitModal
                 open={modals.exit}

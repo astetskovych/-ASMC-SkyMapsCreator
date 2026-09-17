@@ -51,7 +51,9 @@ export default function SkyCanvas({ gridType, constellations, setHelpOpen, stars
             const dpr = window.devicePixelRatio || 1;
             canvas.width = canvas.clientWidth * dpr;
             canvas.height = canvas.clientHeight * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            if(ctx)
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             render();
         }
 
@@ -106,10 +108,34 @@ export default function SkyCanvas({ gridType, constellations, setHelpOpen, stars
 
                 // highlight
                 if (selectedStarRef.current?.id === star.id) {
-                    ctx.beginPath();
-                    ctx.arc(x, y, r + 4, 0, Math.PI * 2);
+                    const radius = r + 3;
+                    const gap = 3;      // empty space around center
+                    const length = 15;  // how far lines extend outside
+
                     ctx.strokeStyle = "#00ff00";
-                    ctx.lineWidth = 1;
+                    ctx.lineWidth = 0.5;
+
+                    ctx.beginPath();
+
+                    //circle
+                    ctx.arc(x, y, radius, 0, Math.PI * 2);
+
+                    // line horizontal (left side)
+                    ctx.moveTo(x - length, y);
+                    ctx.lineTo(x - gap, y);
+
+                    // line horizontal (right side)
+                    ctx.moveTo(x + gap, y);
+                    ctx.lineTo(x + length, y);
+
+                    // line vertical (top)
+                    ctx.moveTo(x, y - length);
+                    ctx.lineTo(x, y - gap);
+
+                    // line vertical (bottom)
+                    ctx.moveTo(x, y + gap);
+                    ctx.lineTo(x, y + length);
+
                     ctx.stroke();
                 }
             }
@@ -150,7 +176,7 @@ export default function SkyCanvas({ gridType, constellations, setHelpOpen, stars
                 setSelectedStarDetails(null);
             }
             if (star) {
-                fetch(`/api/celestialObjects/${star.id}`)
+                fetch(`/api/getCelestialObject/${star.id}`)
                     .then(res => {
                         if (!res.ok) throw new Error("Failed to fetch star details");
                         return res.json() as Promise<Record<string, unknown>>;
