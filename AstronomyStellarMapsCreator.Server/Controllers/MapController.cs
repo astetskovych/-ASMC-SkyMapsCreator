@@ -15,7 +15,7 @@
         [HttpGet("getCat/{id?}")]
         public async Task<ActionResult<List<StarDTO>>> GetCatObjects(int? id)
         {
-            var stars =  await _repository.GetCatAsync(id);
+            var stars = await _repository.GetCatAsync(id);
             return Ok(stars);
         }
 

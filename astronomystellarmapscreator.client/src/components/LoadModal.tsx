@@ -100,9 +100,9 @@ export default function LoadModal({ open, onClose, onSelect }: Props) {
                             onChange={e => setCategoryId(e.target.value)}
                         >
                             <option value="">All Categories</option>
-                            {Object.entries(categories).map(([id, cat]) => (
-                                <option key={id} value={id}>
-                                    {cat.name}
+                            {Object.values(categories).map(cat => (
+                                    <option key={cat.id} value={cat.id}>
+                                    {cat.name} - {cat.description}
                                 </option>
                             ))}
                         </select>

@@ -342,7 +342,7 @@ function drawEquatorialLabels(
     // RA labels (top & bottom)
     // -------------------------
     for (let ra = 0; ra < 360; ra += 30) {
-        const x = (ra / 360) * width;
+        const x = width - (ra / 360) * width;
 
         const hours = Math.floor(ra / 15); // 360° = 24h
         const label = `${hours}h`;

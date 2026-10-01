@@ -1,4 +1,8 @@
-﻿namespace AstronomyStellarMapsCreator.Server.Models;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+
+namespace AstronomyStellarMapsCreator.Server.Models;
 
 public partial class Astro280326Context : DbContext
 {
@@ -69,9 +73,29 @@ public partial class Astro280326Context : DbContext
 
     public virtual DbSet<History> Histories { get; set; }
 
+    public virtual DbSet<I10CatalogDat> I10CatalogDats { get; set; }
+
+    public virtual DbSet<I14PmlateDat> I14PmlateDats { get; set; }
+
+    public virtual DbSet<I16CatalogDat> I16CatalogDats { get; set; }
+
+    public virtual DbSet<I31KszDat> I31KszDats { get; set; }
+
+    public virtual DbSet<I34Greenw2aDat> I34Greenw2aDats { get; set; }
+
+    public virtual DbSet<I34Greenw2bDat> I34Greenw2bDats { get; set; }
+
     public virtual DbSet<I40CatalogDat> I40CatalogDats { get; set; }
 
     public virtual DbSet<I42CatalogDat> I42CatalogDats { get; set; }
+
+    public virtual DbSet<I44Spf2Dat> I44Spf2Dats { get; set; }
+
+    public virtual DbSet<I44Spf2aDat> I44Spf2aDats { get; set; }
+
+    public virtual DbSet<I44Spf2bDat> I44Spf2bDats { get; set; }
+
+    public virtual DbSet<I6FaintDat> I6FaintDats { get; set; }
 
     public virtual DbSet<Ii20aDataDat> Ii20aDataDats { get; set; }
 
@@ -92,6 +116,34 @@ public partial class Astro280326Context : DbContext
     public virtual DbSet<Iv26Notes2Dat> Iv26Notes2Dats { get; set; }
 
     public virtual DbSet<Iv26NotesDat> Iv26NotesDats { get; set; }
+
+    public virtual DbSet<Ix1EffaprodDat> Ix1EffaprodDats { get; set; }
+
+    public virtual DbSet<Ix1MapsDat> Ix1MapsDats { get; set; }
+
+    public virtual DbSet<Ix1P13049Dat> Ix1P13049Dats { get; set; }
+
+    public virtual DbSet<Ix1P13083Dat> Ix1P13083Dats { get; set; }
+
+    public virtual DbSet<Ix1P13084Dat> Ix1P13084Dats { get; set; }
+
+    public virtual DbSet<Ix1P13102Dat> Ix1P13102Dats { get; set; }
+
+    public virtual DbSet<Ix1P13103Dat> Ix1P13103Dats { get; set; }
+
+    public virtual DbSet<Ix1P13122Dat> Ix1P13122Dats { get; set; }
+
+    public virtual DbSet<Ix1P13137Dat> Ix1P13137Dats { get; set; }
+
+    public virtual DbSet<Ix1P25045Dat> Ix1P25045Dats { get; set; }
+
+    public virtual DbSet<Ix1P25051Dat> Ix1P25051Dats { get; set; }
+
+    public virtual DbSet<Ix1P26061Dat> Ix1P26061Dats { get; set; }
+
+    public virtual DbSet<Ix22aDat> Ix22aDats { get; set; }
+
+    public virtual DbSet<Ix44uDat> Ix44uDats { get; set; }
 
     public virtual DbSet<Journal> Journals { get; set; }
 
@@ -130,6 +182,8 @@ public partial class Astro280326Context : DbContext
     public virtual DbSet<V50Note> V50Notes { get; set; }
 
     public virtual DbSet<Vii11DataDat> Vii11DataDats { get; set; }
+
+    public virtual DbSet<Vii13CatalogDat> Vii13CatalogDats { get; set; }
 
     public virtual DbSet<Vii6DataDat> Vii6DataDats { get; set; }
 
@@ -667,6 +721,229 @@ public partial class Astro280326Context : DbContext
                 .HasConstraintName("FK_History_Catalogues");
         });
 
+        modelBuilder.Entity<I10CatalogDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/10(cat__E7FC93545D860390");
+
+            entity.ToTable("I/10(catalog.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.Dm).HasColumnName("DM");
+            entity.Property(e => e.EPlxMas).HasColumnName("e_plx(mas)");
+            entity.Property(e => e.Gctp).HasColumnName("GCTP");
+            entity.Property(e => e.Hd).HasColumnName("HD");
+            entity.Property(e => e.MagMag).HasColumnName("mag(mag)");
+            entity.Property(e => e.NGctp)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("n_GCTP");
+            entity.Property(e => e.NMag)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("n_mag");
+            entity.Property(e => e.Oname)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.PlxMas).HasColumnName("plx(mas)");
+            entity.Property(e => e.PmDeMasYr).HasColumnName("pmDE(mas/yr)");
+            entity.Property(e => e.PmRaMasYr).HasColumnName("pmRA(mas/yr)");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.Sp)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<I14PmlateDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/14(pml__E7FC9354B0D9983E");
+
+            entity.ToTable("I/14(pmlate.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.Id1).HasColumnName("ID");
+            entity.Property(e => e.PmDe10masYr).HasColumnName("pmDE(10mas/yr)");
+            entity.Property(e => e.PmRa001sYr).HasColumnName("pmRA(0.01s/yr)");
+            entity.Property(e => e.RvKmS).HasColumnName("RV(km/s)");
+        });
+
+        modelBuilder.Entity<I16CatalogDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/16(cat__E7FC9354BABBC391");
+
+            entity.ToTable("I/16(catalog.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.DesArcsec).HasColumnName("DEs(arcsec)");
+            entity.Property(e => e.Dm)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DM");
+            entity.Property(e => e.Ep1900Yr).HasColumnName("Ep-1900(yr)");
+            entity.Property(e => e.Id1).HasColumnName("ID");
+            entity.Property(e => e.MagMag).HasColumnName("mag(mag)");
+            entity.Property(e => e.PmDe2ArcsecHa).HasColumnName("pmDE2(arcsec/ha)");
+            entity.Property(e => e.PmDeArcsecHa).HasColumnName("pmDE(arcsec/ha)");
+            entity.Property(e => e.PmRa001sA).HasColumnName("pmRA(0.01s/a)");
+            entity.Property(e => e.PmRa2001sA).HasColumnName("pmRA2(0.01s/a)");
+            entity.Property(e => e.PrDe1ArcsecHa).HasColumnName("prDE1(arcsec/ha)");
+            entity.Property(e => e.PrDe2Arcsec2Ha2).HasColumnName("prDE2(arcsec2/ha2)");
+            entity.Property(e => e.PrRa1001sA).HasColumnName("prRA1(0.01s/a)");
+            entity.Property(e => e.PrRa200001s2A2).HasColumnName("prRA2(0.0001s2/a2)");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.RasS).HasColumnName("RAs(s)");
+            entity.Property(e => e.Rem)
+                .HasMaxLength(2)
+                .IsUnicode(false)
+                .HasColumnName("rem");
+            entity.Property(e => e.Sp)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<I31KszDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/31(ksz__E7FC93547169C0F5");
+
+            entity.ToTable("I/31(ksz.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.DesArcsec).HasColumnName("DEs(arcsec)");
+            entity.Property(e => e.Dm)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DM");
+            entity.Property(e => e.EDesCarcsec).HasColumnName("e_DEs(carcsec)");
+            entity.Property(e => e.ERasMs).HasColumnName("e_RAs(ms)");
+            entity.Property(e => e.EpDe1950Yr).HasColumnName("EpDE-1950(yr)");
+            entity.Property(e => e.EpRa1950Yr).HasColumnName("EpRA-1950(yr)");
+            entity.Property(e => e.IdGal).HasColumnName("ID_gal");
+            entity.Property(e => e.Ksz2).HasColumnName("KSZ2");
+            entity.Property(e => e.MagMag).HasColumnName("mag(mag)");
+            entity.Property(e => e.ODes).HasColumnName("o_DEs");
+            entity.Property(e => e.ORas).HasColumnName("o_RAs");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.RasS).HasColumnName("RAs(s)");
+            entity.Property(e => e.Rem)
+                .HasMaxLength(6)
+                .IsUnicode(false)
+                .HasColumnName("rem");
+            entity.Property(e => e.Sp)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<I34Greenw2aDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/34(gre__E7FC935410BFAC9C");
+
+            entity.ToTable("I/34(greenw2a.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AvarDeArcsecYr).HasColumnName("AvarDE(arcsec/yr)");
+            entity.Property(e => e.AvarRaSYr).HasColumnName("AvarRA(s/yr)");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.DesArcsec).HasColumnName("DEs(arcsec)");
+            entity.Property(e => e.EpDe01yr).HasColumnName("epDE(0.1yr)");
+            entity.Property(e => e.EpRa01yr).HasColumnName("epRA(0.1yr)");
+            entity.Property(e => e.No).HasColumnName("No.");
+            entity.Property(e => e.Note)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.ODes).HasColumnName("o_DEs");
+            entity.Property(e => e.ORas).HasColumnName("o_RAs");
+            entity.Property(e => e.Pgc).HasColumnName("PGC");
+            entity.Property(e => e.PmDeMasYr).HasColumnName("pmDE(mas/yr)");
+            entity.Property(e => e.PmRa01msYr).HasColumnName("pmRA(0.1ms/yr)");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.RasS).HasColumnName("RAs(s)");
+            entity.Property(e => e.SpType)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.SvarDeArcsecHyr).HasColumnName("SvarDE(arcsec/hyr)");
+            entity.Property(e => e.SvarRaSHyr).HasColumnName("SvarRA(s/hyr)");
+            entity.Property(e => e.VarFlag)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("varFlag");
+            entity.Property(e => e.VmagMag).HasColumnName("vmag(mag)");
+        });
+
+        modelBuilder.Entity<I34Greenw2bDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/34(gre__E7FC935428CAB0C0");
+
+            entity.ToTable("I/34(greenw2b.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AvarDeArcsecYr).HasColumnName("AvarDE(arcsec/yr)");
+            entity.Property(e => e.AvarRaSYr).HasColumnName("AvarRA(s/yr)");
+            entity.Property(e => e.Bd)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("BD");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.DesArcsec).HasColumnName("DEs(arcsec)");
+            entity.Property(e => e.Dflag)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("dflag");
+            entity.Property(e => e.EpDe190001yr).HasColumnName("EpDE-1900(0.1yr)");
+            entity.Property(e => e.EpRa190001yr).HasColumnName("EpRA-1900(0.1yr)");
+            entity.Property(e => e.No).HasColumnName("No.");
+            entity.Property(e => e.Note)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.ODes).HasColumnName("o_DEs");
+            entity.Property(e => e.ORas).HasColumnName("o_RAs");
+            entity.Property(e => e.PmDeMasYr).HasColumnName("pmDE(mas/yr)");
+            entity.Property(e => e.PmRa01msYr).HasColumnName("pmRA(0.1ms/yr)");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.RasS).HasColumnName("RAs(s)");
+            entity.Property(e => e.SpType)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.SvarDeArcsecHyr).HasColumnName("SvarDE(arcsec/hyr)");
+            entity.Property(e => e.SvarRaSHyr).HasColumnName("SvarRA(s/hyr)");
+            entity.Property(e => e.VFlag)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("vFlag");
+            entity.Property(e => e.VmagMag).HasColumnName("vmag(mag)");
+        });
+
         modelBuilder.Entity<I40CatalogDat>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__I/40(cat__E7FC93549D1F19FD");
@@ -748,6 +1025,119 @@ public partial class Astro280326Context : DbContext
                 .HasMaxLength(25)
                 .IsUnicode(false);
             entity.Property(e => e.Vmag01mag).HasColumnName("Vmag(0.1mag)");
+        });
+
+        modelBuilder.Entity<I44Spf2Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/44(spf__E7FC9354270BB9D1");
+
+            entity.ToTable("I/44(spf2.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.DRaS).HasColumnName("dRA(s)");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.DesArcsec).HasColumnName("DEs(arcsec)");
+            entity.Property(e => e.ERaS).HasColumnName("e_RA(s)");
+            entity.Property(e => e.Ep1900A).HasColumnName("Ep-1900(a)");
+            entity.Property(e => e.Id1).HasColumnName("ID");
+            entity.Property(e => e.MagMag).HasColumnName("mag(mag)");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.RasS).HasColumnName("RAs(s)");
+            entity.Property(e => e._03).HasColumnName("03");
+        });
+
+        modelBuilder.Entity<I44Spf2aDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/44(spf__E7FC93547AAABD23");
+
+            entity.ToTable("I/44(spf2a.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DelRaS).HasColumnName("del_RA(s)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.DesArcsec).HasColumnName("DEs(arcsec)");
+            entity.Property(e => e.ES).HasColumnName("e(s)");
+            entity.Property(e => e.Ep1900A).HasColumnName("Ep-1900(a)");
+            entity.Property(e => e.Id1).HasColumnName("ID");
+            entity.Property(e => e.MagMag).HasColumnName("mag(mag)");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.RasS).HasColumnName("RAs(s)");
+            entity.Property(e => e.Rem).HasColumnName("rem");
+        });
+
+        modelBuilder.Entity<I44Spf2bDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/44(spf__E7FC93545D86C23A");
+
+            entity.ToTable("I/44(spf2b.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.Id1).HasColumnName("ID");
+            entity.Property(e => e.LEp1900A).HasColumnName("lEp-1900(a)");
+            entity.Property(e => e.LN).HasColumnName("lN");
+            entity.Property(e => e.LRaS).HasColumnName("lRA(s)");
+            entity.Property(e => e.LeS).HasColumnName("le(s)");
+            entity.Property(e => e.MagMag).HasColumnName("mag(mag)");
+            entity.Property(e => e.NA1).HasColumnName("N/A1");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.UEp1900A).HasColumnName("uEp-1900(a)");
+            entity.Property(e => e.UN).HasColumnName("uN");
+            entity.Property(e => e.URaS).HasColumnName("uRA(s)");
+            entity.Property(e => e.UeS).HasColumnName("ue(s)");
+        });
+
+        modelBuilder.Entity<I6FaintDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__I/6(fain__E7FC93548AE10186");
+
+            entity.ToTable("I/6(faint.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.Cpdno).HasColumnName("CPDno");
+            entity.Property(e => e.Cpdz).HasColumnName("CPDz");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.DesArcsec).HasColumnName("DEs(arcsec)");
+            entity.Property(e => e.Ep1900Yr).HasColumnName("Ep-1900(yr)");
+            entity.Property(e => e.Id1).HasColumnName("ID");
+            entity.Property(e => e.MCpdno).HasColumnName("m_CPDno");
+            entity.Property(e => e.MpgMag).HasColumnName("mpg(mag)");
+            entity.Property(e => e.PmDeArcsecA).HasColumnName("pmDE(arcsec/a)");
+            entity.Property(e => e.PmRaSA).HasColumnName("pmRA(s/a)");
+            entity.Property(e => e.PmRaasArcsecA).HasColumnName("pmRAas(arcsec/a)");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.RasS).HasColumnName("RAs(s)");
+            entity.Property(e => e.Rem)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("rem");
+            entity.Property(e => e.Sp)
+                .HasMaxLength(4)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<Ii20aDataDat>(entity =>
@@ -1088,6 +1478,551 @@ public partial class Astro280326Context : DbContext
             entity.Property(e => e.Note)
                 .HasMaxLength(150)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Ix1EffaprodDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(eff__E7FC935418205D15");
+
+            entity.ToTable("IX/1(effaprod.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.Area26Cm2Sr).HasColumnName("Area.26(cm2.sr)");
+            entity.Property(e => e.AreaBCm2Sr).HasColumnName("Area.B(cm2.sr)");
+            entity.Property(e => e.AreaCCm2Sr).HasColumnName("Area.C(cm2.sr)");
+            entity.Property(e => e.AreaICm2Sr).HasColumnName("Area.I(cm2.sr)");
+            entity.Property(e => e.AreaJCm2Sr).HasColumnName("Area.J(cm2.sr)");
+            entity.Property(e => e.AreaM1Cm2Sr).HasColumnName("Area.M1(cm2.sr)");
+            entity.Property(e => e.AreaM2Cm2Sr).HasColumnName("Area.M2(cm2.sr)");
+            entity.Property(e => e.EKeV).HasColumnName("E(keV)");
+        });
+
+        modelBuilder.Entity<Ix1MapsDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(map__E7FC935492BF3EBC");
+
+            entity.ToTable("IX/1(maps.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.FileName)
+                .HasMaxLength(24)
+                .IsUnicode(false);
+            entity.Property(e => e.NA1)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("N/A1");
+            entity.Property(e => e.Text)
+                .HasMaxLength(122)
+                .IsUnicode(false);
+            entity.Property(e => e._)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("---*");
+        });
+
+        modelBuilder.Entity<Ix1P13049Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p13__E7FC9354F438DC9E");
+
+            entity.ToTable("IX/1(p13049.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix1P13083Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p13__E7FC9354CE3FE319");
+
+            entity.ToTable("IX/1(p13083.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix1P13084Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p13__E7FC9354B62F2070");
+
+            entity.ToTable("IX/1(p13084.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix1P13102Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p13__E7FC9354024F215E");
+
+            entity.ToTable("IX/1(p13102.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix1P13103Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p13__E7FC935426BD7644");
+
+            entity.ToTable("IX/1(p13103.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix1P13122Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p13__E7FC9354B7132E26");
+
+            entity.ToTable("IX/1(p13122.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix1P13137Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p13__E7FC93545289F9F9");
+
+            entity.ToTable("IX/1(p13137.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix1P25045Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p25__E7FC9354ED477753");
+
+            entity.ToTable("IX/1(p25045.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix1P25051Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p25__E7FC9354658489E9");
+
+            entity.ToTable("IX/1(p25051.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix1P26061Dat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/1(p26__E7FC9354A4653E26");
+
+            entity.ToTable("IX/1(p26061.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.AltKm).HasColumnName("Alt(km)");
+            entity.Property(e => e.ArcolCm2).HasColumnName("Arcol(cm-2)");
+            entity.Property(e => e.AzBDeg).HasColumnName("Az.B(deg)");
+            entity.Property(e => e.AzDeg).HasColumnName("Az(deg)");
+            entity.Property(e => e.BrateCtS).HasColumnName("Brate(ct/s)");
+            entity.Property(e => e.CrateCtS).HasColumnName("Crate(ct/s)");
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.E26rateCtS).HasColumnName("e_26rate(ct/s)");
+            entity.Property(e => e.EBrateCtS).HasColumnName("e_Brate(ct/s)");
+            entity.Property(e => e.ECrateCtS).HasColumnName("e_Crate(ct/s)");
+            entity.Property(e => e.EIrateCtS).HasColumnName("e_Irate(ct/s)");
+            entity.Property(e => e.EJrateCtS).HasColumnName("e_Jrate(ct/s)");
+            entity.Property(e => e.EM1rateCtS).HasColumnName("e_M1rate(ct/s)");
+            entity.Property(e => e.EM2rateCtS).HasColumnName("e_M2rate(ct/s)");
+            entity.Property(e => e.EMrateCtS).HasColumnName("e_Mrate(ct/s)");
+            entity.Property(e => e.Flag)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.IrateCtS).HasColumnName("Irate(ct/s)");
+            entity.Property(e => e.JrateCtS).HasColumnName("Jrate(ct/s)");
+            entity.Property(e => e.M1rateCtS).HasColumnName("M1rate(ct/s)");
+            entity.Property(e => e.M2rateCtS).HasColumnName("M2rate(ct/s)");
+            entity.Property(e => e.MrateCtS).HasColumnName("Mrate(ct/s)");
+            entity.Property(e => e.NcolCm2).HasColumnName("Ncol(cm-2)");
+            entity.Property(e => e.OcolCm2).HasColumnName("Ocol(cm-2)");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.TimeMMin).HasColumnName("time.m(min)");
+            entity.Property(e => e.TimeSS).HasColumnName("time.s(s)");
+            entity.Property(e => e.ZeBDeg).HasColumnName("Ze.B(deg)");
+            entity.Property(e => e.ZeDeg).HasColumnName("Ze(deg)");
+            entity.Property(e => e._26rateCtS).HasColumnName("26rate(ct/s)");
+            entity.Property(e => e._26trm).HasColumnName("26trm");
+        });
+
+        modelBuilder.Entity<Ix22aDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/2(2a.__E7FC935400351B21");
+
+            entity.ToTable("IX/2(2a.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.Comment)
+                .HasMaxLength(76)
+                .IsUnicode(false);
+            entity.Property(e => e.DedegDeg).HasColumnName("DEdeg(deg)");
+            entity.Property(e => e.N2a)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("n_2A");
+            entity.Property(e => e.NA1)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("N/A1");
+            entity.Property(e => e.NXint)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("n_Xint");
+            entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+            entity.Property(e => e.XintCtS).HasColumnName("Xint(ct/s)");
+            entity.Property(e => e._2a)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("2A");
+        });
+
+        modelBuilder.Entity<Ix44uDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__IX/4(4u.__E7FC9354F190AF8C");
+
+            entity.ToTable("IX/4(4u.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.A90Deg2).HasColumnName("a90(deg+2)");
+            entity.Property(e => e.Com)
+                .HasMaxLength(88)
+                .IsUnicode(false);
+            entity.Property(e => e.CrCtS).HasColumnName("CR(ct/s)");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.DesArcsec).HasColumnName("DEs(arcsec)");
+            entity.Property(e => e.ECrCtS).HasColumnName("e_CR(ct/s)");
+            entity.Property(e => e.EFluxCMCrab).HasColumnName("e_FluxC(mCrab)");
+            entity.Property(e => e.EFluxMWM2).HasColumnName("e_Flux(mW/m2)");
+            entity.Property(e => e.FluxCMCrab).HasColumnName("FluxC(mCrab)");
+            entity.Property(e => e.FluxMWM2).HasColumnName("Flux(mW/m2)");
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.LVar)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("l_var");
+            entity.Property(e => e.NA1)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("N/A1");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.RasS).HasColumnName("RAs(s)");
+            entity.Property(e => e.Var).HasColumnName("var");
+            entity.Property(e => e._4u)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("4U");
         });
 
         modelBuilder.Entity<Journal>(entity =>
@@ -1500,6 +2435,74 @@ public partial class Astro280326Context : DbContext
                 .HasMaxLength(24)
                 .IsUnicode(false);
             entity.Property(e => e.RadegDeg).HasColumnName("RAdeg(deg)");
+        });
+
+        modelBuilder.Entity<Vii13CatalogDat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__VII/13(c__E7FC9354A63B6FD0");
+
+            entity.ToTable("VII/13(catalog.dat)", "Cats");
+
+            entity.Property(e => e.Id).HasColumnName("<ID>");
+            entity.Property(e => e.ABMag).HasColumnName("A(B)(mag)");
+            entity.Property(e => e.AbsLaw).HasColumnName("ABS_LAW");
+            entity.Property(e => e.BVMag).HasColumnName("B-V(mag)");
+            entity.Property(e => e.BVOMag).HasColumnName("(B-V)o(mag)");
+            entity.Property(e => e.BmeanMag).HasColumnName("Bmean(mag)");
+            entity.Property(e => e.BtotMag).HasColumnName("Btot(mag)");
+            entity.Property(e => e.ConCl).HasColumnName("Con_Cl");
+            entity.Property(e => e.D09Arcsec).HasColumnName("D(0.9)(arcsec)");
+            entity.Property(e => e.De)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("DE-");
+            entity.Property(e => e.DedDeg).HasColumnName("DEd(deg)");
+            entity.Property(e => e.DemArcmin).HasColumnName("DEm(arcmin)");
+            entity.Property(e => e.GlatDeg).HasColumnName("GLAT(deg)");
+            entity.Property(e => e.GlonDeg).HasColumnName("GLON(deg)");
+            entity.Property(e => e.Id1)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("ID");
+            entity.Property(e => e.MBMag).HasColumnName("M(B)(mag)");
+            entity.Property(e => e.NDmod)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("n_Dmod");
+            entity.Property(e => e.NGlon)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("n_GLON");
+            entity.Property(e => e.NId)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("n_ID");
+            entity.Property(e => e.NSp)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("n_Sp");
+            entity.Property(e => e.Name)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("name");
+            entity.Property(e => e.RKpc).HasColumnName("r(kpc)");
+            entity.Property(e => e.RahH).HasColumnName("RAh(h)");
+            entity.Property(e => e.RamMin).HasColumnName("RAm(min)");
+            entity.Property(e => e.RvKmS).HasColumnName("RV(km/s)");
+            entity.Property(e => e.Sp)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.UConCl)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("u_Con_Cl");
+            entity.Property(e => e.UD09)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("u_D(0.9)");
+            entity.Property(e => e.XKpc).HasColumnName("x(kpc)");
+            entity.Property(e => e.YKpc).HasColumnName("y(kpc)");
+            entity.Property(e => e.ZKpc).HasColumnName("z(kpc)");
         });
 
         modelBuilder.Entity<Vii6DataDat>(entity =>

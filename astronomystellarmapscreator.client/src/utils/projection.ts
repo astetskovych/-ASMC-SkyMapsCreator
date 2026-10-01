@@ -9,7 +9,7 @@ export function project(
     width: number,
     height: number
 ): Point {
-    const x = (ra / 24) * width;
+    const x = width - (ra / 24) * width;
     const y = height / 2 - (dec / 180) * height;
 
     return { x, y };

@@ -1,0 +1,9 @@
+1.load selected catalogue IN PROCESS
+2.app architecture - refactor think of UnitOfwork, add controllers and services
+3.if caatalogue contains multiple files figure out which one is the main file and load it
+4.mapping coordinates and magnitudes to the correct
+5.error handling and logging
+6.get data about object
+7.UI improvements
+8.find the object on the map
+9.filter objects
