@@ -1,1 +1,2 @@
-# AstronomyStellarMapsCreator
+# [ASMC]AstronomyStellarMapsCreator
+## Description
